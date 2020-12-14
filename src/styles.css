@@ -9,6 +9,12 @@ body {
 
 body {
     background: linear-gradient(90deg, rgb(235 218 83 / 0.05) 20%, rgb(15 6 123 / 0.05) 80%);
+    display: flex;
+    flex-direction: column;
+}
+
+body>* {
+    width: 100%;
 }
 
 .banner,
@@ -48,6 +54,8 @@ h1 img {
 
 main {
     background: white;
+    padding-bottom: 100px;
+    flex-grow: 1;
 }
 
 .container {
@@ -112,4 +120,15 @@ pre {
 
 .code-containers> :first-child {
     margin-right: 15px;
+}
+
+footer {
+    /* padding: 25px; */
+    background: #393939;
+    color: #fcf4e6;
+    text-align: center;
+}
+
+footer a {
+    color: #fcf4e6;
 }
