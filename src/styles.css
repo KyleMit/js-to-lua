@@ -1,0 +1,115 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #fefeff;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+}
+
+body {
+    background: linear-gradient(90deg, rgb(235 218 83 / 0.05) 20%, rgb(15 6 123 / 0.05) 80%);
+}
+
+.banner,
+header,
+main,
+footer {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+code {
+    font-size: 14px;
+    background: #f0f0f0;
+}
+
+.banner {
+    background: linear-gradient(90deg, #ebda53 20%, #0f067b 80%);
+    height: 15px;
+    padding: 0 15px;
+}
+
+header {
+    background: linear-gradient(90deg, rgb(235 218 83 / 0.3) 20%, rgb(15 6 123 / 0.3) 80%);
+    text-align: center;
+}
+
+
+h1 {
+    padding: 15px;
+    margin: 0;
+}
+
+h1 img {
+    height: 21px;
+}
+
+main {
+    background: white;
+}
+
+.container {
+    position: relative;
+    width: 450px;
+}
+
+.editor,
+.console {
+    min-height: 100px;
+}
+
+.console {
+    border-top: 1px solid grey;
+}
+
+.monaco-editor {
+    padding-top: 10px;
+}
+
+pre {
+    font-family: Consolas, "Courier New", monospace;
+    padding: 10px;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    margin-top: 0;
+}
+
+.tag {
+    display: inline-block;
+    padding: 2px 6px;
+}
+
+.tag-js {
+    background: #EBDA53;
+}
+
+.tag.tag-lua {
+    background: #0F067B;
+    color: white;
+}
+
+.bar {
+    height: 4px;
+    position: absolute;
+    top: 20px;
+    width: calc(100% - .5px);
+}
+
+.bar-js {
+    background: #EBDA53;
+}
+
+.bar-lua {
+    background: #0F067B;
+}
+
+.code-containers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.code-containers> :first-child {
+    margin-right: 15px;
+}

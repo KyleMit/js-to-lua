@@ -1,0 +1,36 @@
+{
+  "name": "@kylemit/js-to-lua",
+  "version": "1.0.0",
+  "description": "A guide to converting syntax from JS to LUA",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "predev": "npm run esm",
+    "build": "parcel build src/index.html",
+    "prebuild": "npm run esm",
+    "esm": "npm run esm:json && npm run esm:css && npm run esm:html && npm run esm:ts && npm run esm:worker",
+    "esm:json": "parcel build node_modules/monaco-editor/esm/vs/language/json/json.worker.js --no-source-maps",
+    "esm:css": "parcel build node_modules/monaco-editor/esm/vs/language/css/css.worker.js --no-source-maps",
+    "esm:html": "parcel build node_modules/monaco-editor/esm/vs/language/html/html.worker.js --no-source-maps",
+    "esm:ts": "parcel build node_modules/monaco-editor/esm/vs/language/typescript/ts.worker.js --no-source-maps",
+    "esm:worker": "parcel build node_modules/monaco-editor/esm/vs/editor/editor.worker.js --no-source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KyleMit/js-to-lua.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KyleMit/js-to-lua/issues"
+  },
+  "homepage": "https://github.com/KyleMit/js-to-lua#readme",
+  "dependencies": {
+    "fengari-web": "^0.1.4",
+    "monaco-editor": "^0.21.2"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
