@@ -1,3 +1,4 @@
+/* page layout */
 html,
 body {
     margin: 0;
@@ -26,11 +27,13 @@ footer {
     padding: 15px;
 }
 
+/* typography */
 code {
     font-size: 14px;
     background: #f0f0f0;
 }
 
+/* header */
 .banner {
     background: linear-gradient(90deg, #ebda53 20%, #0f067b 80%);
     height: 15px;
@@ -58,6 +61,17 @@ main {
     flex-grow: 1;
 }
 
+/* code containers */
+.code-containers {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.code-containers> :first-child {
+    margin-right: 15px;
+}
+
+
 .container {
     position: relative;
     width: 450px;
@@ -84,6 +98,7 @@ pre {
     margin-top: 0;
 }
 
+/* container accessories */
 .tag {
     display: inline-block;
     padding: 2px 6px;
@@ -113,14 +128,8 @@ pre {
     background: #0F067B;
 }
 
-.code-containers {
-    display: flex;
-    flex-wrap: wrap;
-}
 
-.code-containers> :first-child {
-    margin-right: 15px;
-}
+/* footer */
 
 footer {
     /* padding: 25px; */
@@ -131,4 +140,46 @@ footer {
 
 footer a {
     color: #fcf4e6;
+}
+
+
+/* play button */
+button.play {
+    display: flex;
+    padding: 2px 8px;
+    float: right;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 2px 2px 0px 0px;
+    background: whitesmoke;
+    cursor: pointer;
+    transition: background-color .4s ease;
+
+}
+
+button.play:hover,
+button.play:focus,
+button.play:active {
+    background: #eaeaea;
+}
+
+
+button.play img {
+    height: 10px;
+    margin-left: 4px;
+}
+
+/* console "theme" */
+.console .monaco-editor,
+.console .monaco-editor-background,
+.console .monaco-editor .inputarea.ime-input {
+    background-color: black;
+}
+
+.console .monaco-editor .margin {
+    background-color: black;
+}
+
+.console .monaco-editor .view-overlays .current-line {
+    border-color: #121212;
 }
