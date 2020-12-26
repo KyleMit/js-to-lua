@@ -60,81 +60,139 @@ let options = {
   //automaticLayout: true,
 };
 
-let containers = [...document.querySelectorAll(".container")];
-containers.forEach((el) => {
-  // get language
-  let isJs = el.classList.contains("container-js");
-  let language = isJs ? "javascript" : "lua";
+let sections = [...document.querySelectorAll(".code-section")];
 
-  // get code block
-  let codeBlock = el.querySelector("pre");
-  let editor = el.querySelector(".editor");
-  let console = el.querySelector(".console");
-  let playBtn = el.querySelector(".play");
+sections.forEach((section) => {
+  let containerJs = section.querySelector(".container-js");
+  let containerLua = section.querySelector(".container-lua");
 
-  // get text
-  let text = codeBlock.innerText;
-  // remove innards
-  el.removeChild(codeBlock);
+  let initEditor = (el) => {
+    // get language
+    let isJs = el.classList.contains("container-js");
+    let language = isJs ? "javascript" : "lua";
 
-  // create editor
-  let monacoEditor = monaco.editor.create(editor, {
-    ...options,
-    value: text,
-    language: language,
-  });
+    // get code block
+    let codeBlock = el.querySelector("pre");
+    let editor = el.querySelector(".editor");
+    let console = el.querySelector(".console");
+    let playBtn = el.querySelector(".play");
 
-  // create console
-  let monacoConsole = monaco.editor.create(console, {
-    ...options,
-    readOnly: true,
-    value: "",
-  });
+    // get text
+    let text = codeBlock.innerText;
+    // remove innards
+    el.removeChild(codeBlock);
 
-  playBtn.addEventListener("click", () => {
+    // create editor
+    let monacoEditor = monaco.editor.create(editor, {
+      ...options,
+      value: text,
+      language: language,
+    });
+
+    // create console
+    let monacoConsole = monaco.editor.create(console, {
+      ...options,
+      readOnly: true,
+      value: "",
+    });
+
+    playBtn.addEventListener("click", () => {
+      runRepl(monacoEditor);
+    });
+
+    //let value = monacoEditor.getValue();
+
+    let createConsole = function (text) {
+      // create output editor
+      // wire up events to re-run output (Ctrl + Enter, F5, or Click Run ▶)
+      monacoConsole.setValue(text);
+      // check if we already exist - if so, just update value
+    };
+
+    let runRepl = (ed) => {
+      let value = ed.getValue();
+
+      if (isJs) {
+        // capture console.log output
+        console.log = function (val) {
+          //createConsole(val);
+        };
+        let out = eval(value);
+        if (out) createConsole(out);
+      } else {
+        // todo: capture print() logs
+        let fn = fengari.load(value);
+        let out = fn();
+        if (out) createConsole(out);
+      }
+    };
+
+    monacoEditor.addAction({
+      id: "run-repl",
+      label: "Run",
+      contextMenuGroupId: "navigation",
+      contextMenuOrder: 1,
+      keybindings: [
+        monaco.KeyCode.F5,
+        monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
+      ],
+      run: runRepl,
+    });
+
     runRepl(monacoEditor);
-  });
 
-  //let value = monacoEditor.getValue();
-
-  let createConsole = function (text) {
-    // create output editor
-    // wire up events to re-run output (Ctrl + Enter, F5, or Click Run ▶)
-    monacoConsole.setValue(text);
-    // check if we already exist - if so, just update value
+    return {
+      editor: monacoEditor,
+      console: monacoConsole,
+      editorDOM: editor,
+      consoleDOM: console,
+    };
   };
 
-  let runRepl = (ed) => {
-    let value = ed.getValue();
+  let editorsJs = initEditor(containerJs);
+  let editorsLua = initEditor(containerLua);
 
-    if (isJs) {
-      // capture console.log output
-      console.log = function (val) {
-        //createConsole(val);
-      };
-      let out = eval(value);
-      if (out) createConsole(out);
-    } else {
-      // todo: capture print() logs
-      let fn = fengari.load(value);
-      let out = fn();
-      if (out) createConsole(out);
-    }
+  // todo: resize all editors per container for consistent line heights
+
+  let resizeSection = () => {
+    let contentHeightJs = editorsJs.editor.getContentHeight();
+    let contentHeightLua = editorsLua.editor.getContentHeight();
+
+    // get max height
+
+    let contentHeightMax = Math.max(contentHeightJs, contentHeightLua);
+
+    // clamp between min and max
+    let lineHeight =
+      editorsJs.editor.getOption(monaco.editor.EditorOptions.lineHeight.id) ||
+      19;
+
+    let minHeight = 2 * lineHeight;
+    let maxHeight = 15 * lineHeight;
+
+    let contentHeightClamped = clamp(contentHeightMax, minHeight, maxHeight);
+
+    let contentHeightPadded = contentHeightClamped + 10 + 2;
+
+    // also update element
+    editorsJs.editorDOM.style.height = `${contentHeightPadded}px`;
+    editorsLua.editorDOM.style.height = `${contentHeightPadded}px`;
+
+    // let dimensions = { width: 450, height: contentHeightClamped }
+
+    // update both editors
+    editorsJs.editor.layout();
+    editorsLua.editor.layout();
   };
 
-  monacoEditor.addAction({
-    id: "run-repl",
-    label: "Run",
-    contextMenuGroupId: "navigation",
-    contextMenuOrder: 1,
-    keybindings: [
-      monaco.KeyCode.F5,
-      monaco.KeyMod.CtrlCmd | monaco.KeyCode.Enter,
-    ],
-    run: runRepl,
-  });
+  editorsJs.editor.onDidChangeModelContent(resizeSection);
+  editorsLua.editor.onDidChangeModelContent(resizeSection);
 
-  runRepl(monacoEditor);
+  // run on launch
+  resizeSection();
+  // todo: handle window resize event
 });
 
-// todo: resize all editors per container for consistent line heights
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}

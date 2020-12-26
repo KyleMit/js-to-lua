@@ -28,8 +28,8 @@ npm run build
 * [x] Remove items from context menu
 * [ ] Capture print output in lua
 * [ ] Add `inspect` library for lua -> convert output to JSON
-* [ ] Resize containers and output height = contents + 1 line
-  * resize on edit?
+* [x] Resize containers and output height = contents + 1 line
+  * [x] resize on edit?
 * [ ] resize monaco editor width for mobile layout
 * [ ] Generate `index.html` from `index.md`
   * maybe use mdx?

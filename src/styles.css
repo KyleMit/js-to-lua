@@ -62,12 +62,12 @@ main {
 }
 
 /* code containers */
-.code-containers {
+.code-section {
     display: flex;
     flex-wrap: wrap;
 }
 
-.code-containers> :first-child {
+.code-section> :first-child {
     margin-right: 15px;
 }
 
@@ -79,7 +79,7 @@ main {
 
 .editor,
 .console {
-    min-height: 100px;
+    min-height: 50px;
 }
 
 .console {
