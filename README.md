@@ -31,7 +31,12 @@ npm run build
 * [x] Resize containers and output height = contents + 1 line
   * [x] resize on edit?
 * [x] resize monaco editor width for mobile layout
-* [ ] Generate `index.html` from `index.md`
+* [x] Generate `index.html` from `index.md`
   * maybe use mdx?
-  * option to hide/show console on startup
-  * makes authoring and contributing simple and clean
+    * h2 / title
+    * paragraph (md)
+    * fenced code block js
+    * fenced code block lua
+  * [x] make authoring and contributing simple and clean - added docs
+* option to hide/show console on startup
+* handle null return or error return

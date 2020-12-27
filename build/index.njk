@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>JS to LUA</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lato&family=Roboto+Slab&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="./assets/js-lua-logo.png"/>
+        <link rel="stylesheet" href="./styles.css"/>
+    </head>
+    <body>
+        <div class="banner">
+            <div class="banner-ripple"></div>
+        </div>
+
+        <header>
+            <h1>
+                JS
+                <img src="./assets/arrow-right.svg" alt="right arrow"/>
+                LUA
+            </h1>
+            <p>A guide to converting syntax from JS to LUA</p>
+        </header>
+
+        <main>
+            <!-- repeat section / header / paragraph / code block 2x -->
+            {% for item in sections %}
+                <section id="{{item.slug}}">
+                    <h2>{{item.title}}</h2>
+
+                    <div class="content">{{item.contentHtml | safe}}</div>
+
+                    {% if item.codeJs and item.codeLua%}
+                        <div class="code-section">
+                            <div class="container container-js">
+                                <div class="tag tag-js">JS</div>
+                                <div class="bar bar-js"></div>
+                                <button class="play" title="Ctrl + Enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>{{item.codeJs}}</pre>
+                                <div class="editor editor-js"></div>
+                                <div class="console console-js"></div>
+                            </div>
+
+                            <div class="container container-lua">
+                                <div class="tag tag-lua">lua</div>
+                                <div class="bar bar-lua"></div>
+                                <button class="play" title="ctrl + enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>{{item.codeLua}}</pre>
+                                <div class="editor editor-lua"></div>
+                                <div class="console console-js"></div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </section>
+
+            {% endfor %}
+        </main>
+
+        <footer>
+            Kindly
+            <a href="https://github.com/KyleMit/js-to-lua">Contribute on Github</a>
+            ♥
+        </footer>
+
+        <script src="./site.js"></script>
+    </body>
+</html>

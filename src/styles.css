@@ -28,9 +28,27 @@ footer {
 }
 
 /* typography */
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 0.5px;
+}
+
 code {
-    font-size: 14px;
+    font-size: 16px;
+    font-family: 'Fira Code', monospace;
     background: #f0f0f0;
+    padding: 0px 2px;
+}
+
+p {
+    line-height: 18px;
+    font-size: 18px;
 }
 
 /* header */
@@ -191,10 +209,10 @@ button.play img {
     width: 20px;
     left: 0;
     background: linear-gradient(90deg, transparent 0%, #ebda53 40%, #0f067b 60%, transparent 4%);
-    opacity: 0.4;
+    opacity: 0.3;
     animation-name: ripple, hide;
-    animation-duration: 10s, 0s;
-    animation-delay: 0s, 10s;
+    animation-duration: 20s, 0s;
+    animation-delay: 0s, 20s;
     animation-iteration-count: 1, 1;
     animation-timing-function: ease-in-out, linear;
     animation-fill-mode: none, forwards;

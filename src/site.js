@@ -112,19 +112,29 @@ sections.forEach((section) => {
     let runRepl = (ed) => {
       let value = ed.getValue();
 
+      let output;
+
       if (isJs) {
         // capture console.log output
         console.log = function (val) {
           //createConsole(val);
         };
-        let out = eval(value);
-        if (out) createConsole(out);
+        try {
+          output = eval(value);
+        } catch (error) {
+          output = error;
+        }
       } else {
         // todo: capture print() logs
-        let fn = fengari.load(value);
-        let out = fn();
-        if (out) createConsole(out);
+        try {
+          let fn = fengari.load(value);
+          output = fn();
+        } catch (error) {
+          output = error;
+        }
       }
+
+      if (output) createConsole(`${output}`);
     };
 
     monacoEditor.addAction({

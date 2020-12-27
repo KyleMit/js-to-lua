@@ -1,82 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JS to LUA</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/png" href="./assets/js-lua-logo.png" />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="banner">
-      <div class="banner-ripple"></div>
-    </div>
-    <header>
-      <h1>
-        JS
-        <img src="./assets/arrow-right.svg" alt="right arrow" />
-        LUA
-      </h1>
-      <p>A guide to converting syntax from JS to LUA</p>
-    </header>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>JS to LUA</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Lato&family=Roboto+Slab&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="./assets/js-lua-logo.png"/>
+        <link rel="stylesheet" href="./styles.css"/>
+    </head>
+    <body>
+        <div class="banner">
+            <div class="banner-ripple"></div>
+        </div>
 
-    <main>
-      <!-- repeat section / header / paragraph / code block 2x -->
-      <section id="Functions">
-        <h2>Functions</h2>
+        <header>
+            <h1>
+                JS
+                <img src="./assets/arrow-right.svg" alt="right arrow"/>
+                LUA
+            </h1>
+            <p>A guide to converting syntax from JS to LUA</p>
+        </header>
 
-        <p>Functions in lua don't use brackets <code>{}</code></p>
+        <main>
+            <!-- repeat section / header / paragraph / code block 2x -->
+            
+                <section id="functions">
+                    <h2>Functions</h2>
 
-        <div class="code-section">
-          <div class="container container-js">
-            <div class="tag tag-js">JS</div>
-            <div class="bar bar-js"></div>
-            <button class="play" title="Ctrl + Enter">
-              Run <img src="./assets/play.svg" alt="play" />
-            </button>
-            <pre>
-function sayHello(name) {
+                    <div class="content"><p>Lua uses <code>keyword...end</code> blocks instead of <code>{}</code></p>
+</div>
+
+                    
+                        <div class="code-section">
+                            <div class="container container-js">
+                                <div class="tag tag-js">JS</div>
+                                <div class="bar bar-js"></div>
+                                <button class="play" title="Ctrl + Enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>function sayHello(name) {
     return name
 }
 
-sayHello("Kyle 1")
-</pre
-            >
-            <div class="editor editor-js"></div>
-            <div class="console console-js"></div>
-          </div>
+sayHello(&quot;gan&quot;)</pre>
+                                <div class="editor editor-js"></div>
+                                <div class="console console-js"></div>
+                            </div>
 
-          <div class="container container-lua">
-            <div class="tag tag-lua">Lua</div>
-            <div class="bar bar-lua"></div>
-            <button class="play" title="Ctrl + Enter">
-              Run <img src="./assets/play.svg" alt="play" />
-            </button>
-            <pre>
-function sayHello(name)
+                            <div class="container container-lua">
+                                <div class="tag tag-lua">lua</div>
+                                <div class="bar bar-lua"></div>
+                                <button class="play" title="ctrl + enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>function sayHello(name)
     return name
 end
 
-return sayHello("Kyle 2")
-</pre
-            >
-            <div class="editor editor-lua"></div>
-            <div class="console console-js"></div>
-          </div>
-        </div>
-      </section>
-    </main>
+return sayHello(&quot;gus&quot;)</pre>
+                                <div class="editor editor-lua"></div>
+                                <div class="console console-js"></div>
+                            </div>
+                        </div>
+                    
+                </section>
 
-    <footer>
-      Kindly
-      <a href="https://github.com/KyleMit/js-to-lua">Contribute on Github</a> ♥
-    </footer>
+            
+                <section id="variable">
+                    <h2>Variable</h2>
 
-    <script src="./site.js"></script>
-  </body>
+                    <div class="content"><p>All local variables in lua use</p>
+</div>
+
+                    
+                        <div class="code-section">
+                            <div class="container container-js">
+                                <div class="tag tag-js">JS</div>
+                                <div class="bar bar-js"></div>
+                                <button class="play" title="Ctrl + Enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>var a = 1
+let b = 2
+const c = 3
+d = 4 // global</pre>
+                                <div class="editor editor-js"></div>
+                                <div class="console console-js"></div>
+                            </div>
+
+                            <div class="container container-lua">
+                                <div class="tag tag-lua">lua</div>
+                                <div class="bar bar-lua"></div>
+                                <button class="play" title="ctrl + enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>local a = 1
+local b = 2
+local c = 3
+d = 4 -- global</pre>
+                                <div class="editor editor-lua"></div>
+                                <div class="console console-js"></div>
+                            </div>
+                        </div>
+                    
+                </section>
+
+            
+                <section id="further-reading">
+                    <h2>Further Reading</h2>
+
+                    <div class="content"><ul>
+<li><a href="http://phrogz.net/lua/LearningLua_FromJS.html">Learning Lua from JavaScript</a></li>
+<li><a href="https://www.mediawiki.org/wiki/User:Sumanah/Lua_vs_Javascript">Lua vs Javascript - MediaWiki</a></li>
+<li><a href="https://stackoverflow.com/q/1022560/1366033">Subtle differences between JavaScript and Lua</a></li>
+</ul>
+</div>
+
+                    
+                </section>
+
+            
+        </main>
+
+        <footer>
+            Kindly
+            <a href="https://github.com/KyleMit/js-to-lua">Contribute on Github</a>
+            ♥
+        </footer>
+
+        <script src="./site.js"></script>
+    </body>
 </html>

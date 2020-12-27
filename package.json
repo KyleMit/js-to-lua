@@ -4,10 +4,11 @@
   "description": "A guide to converting syntax from JS to LUA",
   "main": "index.js",
   "scripts": {
+    "ssg:data": "node build/buildData.js",
     "dev": "parcel src/index.html",
     "predev": "npm run esm",
     "build": "parcel build src/index.html",
-    "prebuild": "npm run esm",
+    "prebuild": "npm run markdown && npm run esm",
     "esm": "npm run esm:json && npm run esm:css && npm run esm:html && npm run esm:ts && npm run esm:worker",
     "esm:json": "parcel build node_modules/monaco-editor/esm/vs/language/json/json.worker.js --no-source-maps",
     "esm:css": "parcel build node_modules/monaco-editor/esm/vs/language/css/css.worker.js --no-source-maps",
@@ -28,9 +29,11 @@
   "homepage": "https://github.com/KyleMit/js-to-lua#readme",
   "dependencies": {
     "fengari-web": "^0.1.4",
+    "markdown-it": "^12.0.4",
     "monaco-editor": "^0.21.2"
   },
   "devDependencies": {
+    "nunjucks": "^3.2.2",
     "parcel-bundler": "^1.12.4"
   }
 }
