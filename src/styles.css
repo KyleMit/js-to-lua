@@ -38,7 +38,9 @@ code {
     background: linear-gradient(90deg, #ebda53 20%, #0f067b 80%);
     height: 15px;
     padding: 0 15px;
+    position: relative;
 }
+
 
 header {
     background: linear-gradient(90deg, rgb(235 218 83 / 0.3) 20%, rgb(15 6 123 / 0.3) 80%);
@@ -77,13 +79,10 @@ main {
     width: 450px;
 }
 
-.editor,
-.console {
-    min-height: 50px;
-}
 
 .console {
     border-top: 1px solid grey;
+    margin-bottom: 10px;
 }
 
 .monaco-editor {
@@ -95,7 +94,7 @@ pre {
     padding: 10px;
     background: #1e1e1e;
     color: #d4d4d4;
-    margin-top: 0;
+    margin: 0;
 }
 
 /* container accessories */
@@ -166,7 +165,7 @@ button.play:active {
 
 button.play img {
     height: 10px;
-    margin-left: 4px;
+    margin-left: 6px;
 }
 
 /* console "theme" */
@@ -182,4 +181,51 @@ button.play img {
 
 .console .monaco-editor .view-overlays .current-line {
     border-color: #121212;
+}
+
+/* animation */
+
+.banner-ripple {
+    position: absolute;
+    height: 15px;
+    width: 20px;
+    left: 0;
+    background: linear-gradient(90deg, transparent 0%, #ebda53 40%, #0f067b 60%, transparent 4%);
+    opacity: 0.4;
+    animation-name: ripple, hide;
+    animation-duration: 10s, 0s;
+    animation-delay: 0s, 10s;
+    animation-iteration-count: 1, 1;
+    animation-timing-function: ease-in-out, linear;
+    animation-fill-mode: none, forwards;
+
+}
+
+@keyframes ripple {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: calc(100% - 20px);
+    }
+}
+
+@keyframes hide {
+    100% {
+        opacity: 0;
+    }
+}
+
+/* media queries */
+
+@media (max-width: 950px) {
+
+    .code-section {
+        flex-direction: column;
+    }
+
+    .container {
+        width: 100%;
+    }
 }
