@@ -154,43 +154,64 @@ sections.forEach((section) => {
 
   // todo: resize all editors per container for consistent line heights
 
-  let resizeSection = () => {
-    let contentHeightJs = editorsJs.editor.getContentHeight();
-    let contentHeightLua = editorsLua.editor.getContentHeight();
-
-    // get max height
-
-    let contentHeightMax = Math.max(contentHeightJs, contentHeightLua);
-
-    // clamp between min and max
+  let resizePair = (first, second, keepEvenHeight) => {
+    // calc constants
+    let paddingHeight = 10 + 2; // top + bottom
     let lineHeight =
       editorsJs.editor.getOption(monaco.editor.EditorOptions.lineHeight.id) ||
       19;
 
-    let minHeight = 2 * lineHeight;
-    let maxHeight = 15 * lineHeight;
+    // calc min / max based on line height
+    let minHeight = 2 * lineHeight + paddingHeight;
+    let maxHeight = 15 * lineHeight + paddingHeight;
 
-    let contentHeightClamped = clamp(contentHeightMax, minHeight, maxHeight);
+    // calc editor heights
+    let firstHeight = first.monaco.getContentHeight() + paddingHeight;
+    let secondHeight = second.monaco.getContentHeight() + paddingHeight;
 
-    let contentHeightPadded = contentHeightClamped + 10 + 2;
+    // keep tallest value if we're keeping in sync
+    if (keepEvenHeight) {
+      firstHeight = Math.max(firstHeight, secondHeight);
+      secondHeight = Math.max(firstHeight, secondHeight);
+    }
 
-    // also update element
-    editorsJs.editorDOM.style.height = `${contentHeightPadded}px`;
-    editorsLua.editorDOM.style.height = `${contentHeightPadded}px`;
+    // clamp between min and max
+    firstHeight = clamp(firstHeight, minHeight, maxHeight);
+    secondHeight = clamp(secondHeight, minHeight, maxHeight);
 
-    // let dimensions = { width: 450, height: contentHeightClamped }
+    // first update element
+    first.dom.style.height = `${firstHeight}px`;
+    second.dom.style.height = `${secondHeight}px`;
 
-    // update both editors
-    editorsJs.editor.layout();
-    editorsLua.editor.layout();
+    // then just re-layout editor
+    first.monaco.layout();
+    second.monaco.layout();
+  };
+
+  let resizeSection = () => {
+    // update editors
+    resizePair(
+      { monaco: editorsJs.editor, dom: editorsJs.editorDOM },
+      { monaco: editorsLua.editor, dom: editorsLua.editorDOM },
+      window.innerWidth > 950 // mobile stack layout does not require height sync
+    );
+
+    // update consoles
+    resizePair(
+      { monaco: editorsJs.console, dom: editorsJs.consoleDOM },
+      { monaco: editorsLua.console, dom: editorsLua.consoleDOM },
+      false // consoles do not need even height
+    );
   };
 
   editorsJs.editor.onDidChangeModelContent(resizeSection);
   editorsLua.editor.onDidChangeModelContent(resizeSection);
 
+  // handle window resize event
+  window.addEventListener("resize", resizeSection);
+
   // run on launch
   resizeSection();
-  // todo: handle window resize event
 });
 
 function clamp(value, min, max) {

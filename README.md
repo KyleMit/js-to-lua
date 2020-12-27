@@ -30,8 +30,8 @@ npm run build
 * [ ] Add `inspect` library for lua -> convert output to JSON
 * [x] Resize containers and output height = contents + 1 line
   * [x] resize on edit?
-* [ ] resize monaco editor width for mobile layout
+* [x] resize monaco editor width for mobile layout
 * [ ] Generate `index.html` from `index.md`
   * maybe use mdx?
-  * option to include console on startup
+  * option to hide/show console on startup
   * makes authoring and contributing simple and clean
