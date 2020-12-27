@@ -5,7 +5,7 @@
 
 ## Functions
 
-Lua uses `keyword...end` blocks instead of `{}`
+Lua uses `keyword...end` blocks instead of `{}`.
 
 ```js
 function sayHello(name) {
@@ -28,7 +28,7 @@ return sayHello("gus")
 
 ## Variable
 
-All local variables in lua use
+All local variables in lua use `local` instead of `var`, `let`, or `const`.
 
 ```js
 var a = 1
