@@ -51,11 +51,13 @@ self.MonacoEnvironment = {
   },
 };
 
+let nativeLog = console.log;
+
 let options = {
   theme: "vs-dark",
   minimap: { enabled: false },
   lineNumbers: "off",
-  scrollbar: { vertical: "auto" },
+  scrollbar: { vertical: "auto", alwaysConsumeMouseWheel: false },
   scrollBeyondLastLine: false,
   //automaticLayout: true,
 };
@@ -110,26 +112,34 @@ sections.forEach((section) => {
     };
 
     let runRepl = (ed) => {
+      debugger;
       let value = ed.getValue();
 
       let output;
 
       if (isJs) {
         // capture console.log output
+
         console.log = function (val) {
-          //createConsole(val);
+          nativeLog(arguments);
+          createConsole(arguments);
         };
         try {
+          // if console.log is passively called, we need to hook into
           output = eval(value);
         } catch (error) {
+          nativeLog("js eval error", { error, value });
           output = error;
         }
+
+        console.log = nativeLog;
       } else {
         // todo: capture print() logs
         try {
           let fn = fengari.load(value);
           output = fn();
         } catch (error) {
+          nativeLog("lua eval error", { error, value });
           output = error;
         }
       }

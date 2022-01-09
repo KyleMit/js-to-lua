@@ -1,5 +1,10 @@
 /* page layout */
 html,
+html * {
+    box-sizing: border-box;
+}
+
+html,
 body {
     margin: 0;
     padding: 0;
@@ -22,7 +27,7 @@ body>* {
 header,
 main,
 footer {
-    max-width: 920px;
+    max-width: 945px;
     margin: 0 auto;
     padding: 15px;
 }
@@ -84,7 +89,6 @@ main {
 /* code containers */
 .code-section {
     display: flex;
-    flex-wrap: wrap;
 }
 
 .code-section> :first-child {
@@ -100,7 +104,7 @@ main {
 
 .console {
     border-top: 1px solid grey;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .monaco-editor {
@@ -166,9 +170,9 @@ button.play {
     padding: 2px 8px;
     float: right;
     align-items: center;
-    border: 1px solid grey;
+    border: 1px solid #d4d4d4;
     border-radius: 2px 2px 0px 0px;
-    background: whitesmoke;
+    background: #e4e4e4;
     cursor: pointer;
     transition: background-color .4s ease;
 
@@ -177,7 +181,7 @@ button.play {
 button.play:hover,
 button.play:focus,
 button.play:active {
-    background: #eaeaea;
+    background: #c7c7c7;
 }
 
 
@@ -237,7 +241,7 @@ button.play img {
 
 /* media queries */
 
-@media (max-width: 950px) {
+@media (max-width: 970px) {
 
     .code-section {
         flex-direction: column;

@@ -26,7 +26,7 @@ npm run build
   * <kbd>Ctrl</kbd> + <kbd>Enter</kbd>
   * <kbd>F5</kbd>
 * [x] Remove items from context menu
-* [ ] Capture print output in lua
+* [ ] Capture `print` output in lua
 * [ ] Add `inspect` library for lua -> convert output to JSON
 * [x] Resize containers and output height = contents + 1 line
   * [x] resize on edit?
@@ -39,4 +39,5 @@ npm run build
     * fenced code block lua
   * [x] make authoring and contributing simple and clean - added docs
 * option to hide/show console on startup
-* handle null return or error return
+* [x] handle null return or error return
+* [ ] eval global variable with parcel

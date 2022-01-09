@@ -63,7 +63,7 @@ async function main() {
 function slugify(s) {
   // strip special chars
   let newStr = s
-    .replace(/[^a-z ]/gi, "")
+    .replace(/[^a-z\- ]/gi, "")
     .toLowerCase()
     .trim();
   // take first 4 words and separate with "-""

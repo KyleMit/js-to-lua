@@ -53,7 +53,7 @@ sayHello(&quot;gan&quot;)</pre>
                             </div>
 
                             <div class="container container-lua">
-                                <div class="tag tag-lua">lua</div>
+                                <div class="tag tag-lua">Lua</div>
                                 <div class="bar bar-lua"></div>
                                 <button class="play" title="ctrl + enter">
                                     Run
@@ -65,6 +65,90 @@ sayHello(&quot;gan&quot;)</pre>
 end
 
 return sayHello(&quot;gus&quot;)</pre>
+                                <div class="editor editor-lua"></div>
+                                <div class="console console-js"></div>
+                            </div>
+                        </div>
+                    
+                </section>
+
+            
+                <section id="comments">
+                    <h2>Comments</h2>
+
+                    <div class="content"></div>
+
+                    
+                        <div class="code-section">
+                            <div class="container container-js">
+                                <div class="tag tag-js">JS</div>
+                                <div class="bar bar-js"></div>
+                                <button class="play" title="Ctrl + Enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>// single line comment
+/*
+    multiline comment
+*/</pre>
+                                <div class="editor editor-js"></div>
+                                <div class="console console-js"></div>
+                            </div>
+
+                            <div class="container container-lua">
+                                <div class="tag tag-lua">Lua</div>
+                                <div class="bar bar-lua"></div>
+                                <button class="play" title="ctrl + enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>-- single line comment
+--[[
+    multiline comment
+--]]</pre>
+                                <div class="editor editor-lua"></div>
+                                <div class="console console-js"></div>
+                            </div>
+                        </div>
+                    
+                </section>
+
+            
+                <section id="do--while">
+                    <h2>do .. while</h2>
+
+                    <div class="content"></div>
+
+                    
+                        <div class="code-section">
+                            <div class="container container-js">
+                                <div class="tag tag-js">JS</div>
+                                <div class="bar bar-js"></div>
+                                <button class="play" title="Ctrl + Enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>do {
+    // some code
+} while (condition)</pre>
+                                <div class="editor editor-js"></div>
+                                <div class="console console-js"></div>
+                            </div>
+
+                            <div class="container container-lua">
+                                <div class="tag tag-lua">Lua</div>
+                                <div class="bar bar-lua"></div>
+                                <button class="play" title="ctrl + enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>repeat
+    -- some code
+until not condition</pre>
                                 <div class="editor editor-lua"></div>
                                 <div class="console console-js"></div>
                             </div>
@@ -98,7 +182,7 @@ d = 4 // global</pre>
                             </div>
 
                             <div class="container container-lua">
-                                <div class="tag tag-lua">lua</div>
+                                <div class="tag tag-lua">Lua</div>
                                 <div class="bar bar-lua"></div>
                                 <button class="play" title="ctrl + enter">
                                     Run
@@ -109,6 +193,255 @@ d = 4 // global</pre>
 local b = 2
 local c = 3
 d = 4 -- global</pre>
+                                <div class="editor editor-lua"></div>
+                                <div class="console console-js"></div>
+                            </div>
+                        </div>
+                    
+                </section>
+
+            
+                <section id="equality">
+                    <h2>Equality</h2>
+
+                    <div class="content"></div>
+
+                    
+                        <div class="code-section">
+                            <div class="container container-js">
+                                <div class="tag tag-js">JS</div>
+                                <div class="bar bar-js"></div>
+                                <button class="play" title="Ctrl + Enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>let bool1 = &quot;0&quot; === 0 // false
+let bool2 = &quot;0&quot; == 0  // true</pre>
+                                <div class="editor editor-js"></div>
+                                <div class="console console-js"></div>
+                            </div>
+
+                            <div class="container container-lua">
+                                <div class="tag tag-lua">Lua</div>
+                                <div class="bar bar-lua"></div>
+                                <button class="play" title="ctrl + enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>local bool1 = &quot;0&quot; == 0            -- false
+local bool2 = &quot;0&quot; == tostring(0)  -- true</pre>
+                                <div class="editor editor-lua"></div>
+                                <div class="console console-js"></div>
+                            </div>
+                        </div>
+                    
+                </section>
+
+            
+                <section id="negation-operator">
+                    <h2>Negation Operator</h2>
+
+                    <div class="content"></div>
+
+                    
+                        <div class="code-section">
+                            <div class="container container-js">
+                                <div class="tag tag-js">JS</div>
+                                <div class="bar bar-js"></div>
+                                <button class="play" title="Ctrl + Enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>let isNotFrance = country != &quot;france&quot;</pre>
+                                <div class="editor editor-js"></div>
+                                <div class="console console-js"></div>
+                            </div>
+
+                            <div class="container container-lua">
+                                <div class="tag tag-lua">Lua</div>
+                                <div class="bar bar-lua"></div>
+                                <button class="play" title="ctrl + enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>local isNotFrance = country ~= &quot;france&quot;</pre>
+                                <div class="editor editor-lua"></div>
+                                <div class="console console-js"></div>
+                            </div>
+                        </div>
+                    
+                </section>
+
+            
+                <section id="ternary">
+                    <h2>Ternary</h2>
+
+                    <div class="content"></div>
+
+                    
+                        <div class="code-section">
+                            <div class="container container-js">
+                                <div class="tag tag-js">JS</div>
+                                <div class="bar bar-js"></div>
+                                <button class="play" title="Ctrl + Enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>let name = condition ? &quot;A&quot; : &quot;B&quot;</pre>
+                                <div class="editor editor-js"></div>
+                                <div class="console console-js"></div>
+                            </div>
+
+                            <div class="container container-lua">
+                                <div class="tag tag-lua">Lua</div>
+                                <div class="bar bar-lua"></div>
+                                <button class="play" title="ctrl + enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>local name = condition and &quot;A&quot; or &quot;B&quot;
+
+-- safer
+if condition then
+    name = &quot;A&quot;
+else
+    name = &quot;B&quot;
+end</pre>
+                                <div class="editor editor-lua"></div>
+                                <div class="console console-js"></div>
+                            </div>
+                        </div>
+                    
+                </section>
+
+            
+                <section id="null-coalescing-operator">
+                    <h2>Null-Coalescing Operator</h2>
+
+                    <div class="content"></div>
+
+                    
+                        <div class="code-section">
+                            <div class="container container-js">
+                                <div class="tag tag-js">JS</div>
+                                <div class="bar bar-js"></div>
+                                <button class="play" title="Ctrl + Enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>let message = error.message ?? &#39;An unknown error occurred.&#39;;
+let message = error.message ? error.message : &#39;An unknown error occurred.&#39;;</pre>
+                                <div class="editor editor-js"></div>
+                                <div class="console console-js"></div>
+                            </div>
+
+                            <div class="container container-lua">
+                                <div class="tag tag-lua">Lua</div>
+                                <div class="bar bar-lua"></div>
+                                <button class="play" title="ctrl + enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>local message = error.message or &#39;An unknown error occurred.&#39;;</pre>
+                                <div class="editor editor-lua"></div>
+                                <div class="console console-js"></div>
+                            </div>
+                        </div>
+                    
+                </section>
+
+            
+                <section id="multiple-expressions">
+                    <h2>Multiple Expressions</h2>
+
+                    <div class="content"></div>
+
+                    
+                        <div class="code-section">
+                            <div class="container container-js">
+                                <div class="tag tag-js">JS</div>
+                                <div class="bar bar-js"></div>
+                                <button class="play" title="Ctrl + Enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>const variable = (someExpression1, someExpression2, ..., someExpressionN)</pre>
+                                <div class="editor editor-js"></div>
+                                <div class="console console-js"></div>
+                            </div>
+
+                            <div class="container container-lua">
+                                <div class="tag tag-lua">Lua</div>
+                                <div class="bar bar-lua"></div>
+                                <button class="play" title="ctrl + enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>local variable = (function()
+    someExpression1
+    someExpression2
+    ...
+    return someExpressionN
+end)()</pre>
+                                <div class="editor editor-lua"></div>
+                                <div class="console console-js"></div>
+                            </div>
+                        </div>
+                    
+                </section>
+
+            
+                <section id="unicode">
+                    <h2>Unicode</h2>
+
+                    <div class="content"><p>Lua only supports up to UTF-8</p>
+<p>JS has <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode"><code>String.fromCharCode()</code></a></p>
+</div>
+
+                    
+                        <div class="code-section">
+                            <div class="container container-js">
+                                <div class="tag tag-js">JS</div>
+                                <div class="bar bar-js"></div>
+                                <button class="play" title="Ctrl + Enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>let a1 = &quot;a&quot;
+let a2 = &quot;\u{061}&quot;
+let a3 = &quot;\u0061&quot;
+let a4 = String.fromCharCode(0x61) // hex
+let a5 = String.fromCharCode(97)   // dec</pre>
+                                <div class="editor editor-js"></div>
+                                <div class="console console-js"></div>
+                            </div>
+
+                            <div class="container container-lua">
+                                <div class="tag tag-lua">Lua</div>
+                                <div class="bar bar-lua"></div>
+                                <button class="play" title="ctrl + enter">
+                                    Run
+                                    <img src="./assets/play.svg" alt="play"/>
+                                </button>
+
+                                <pre>local a1 = &quot;a&quot;
+local a2 = &quot;\u{061}&quot;
+local a3 = &quot;\097&quot;
+local a4 = string.char(0x61) -- hex
+local a5 = string.char(97)   -- dec
+local a6 = utf8.char(0x61)   -- hex
+local a7 = utf8.char(97)     -- dec</pre>
                                 <div class="editor editor-lua"></div>
                                 <div class="console console-js"></div>
                             </div>
